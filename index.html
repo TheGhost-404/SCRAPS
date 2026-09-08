@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>$SCRAPS — THE HOOD</title>
+<meta name="description" content="$SCRAPS. One raccoon. One billion scraps. Zero tax.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#071a3d;--paper:#102955;--ink:#f7f3e8;--acid:#b7ef42;--orange:#ff6b2c;--pink:#ff75a8;--blue:#55c8ff;--muted:#9eb0cf}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#163b79 0,#071a3d 45%,#040f26 100%);color:var(--paper);font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"✦  ✧     ✦       ✧    ✦      ✦";position:fixed;inset:0;pointer-events:none;z-index:0;color:#8cc9ff;font-size:22px;letter-spacing:55px;line-height:85px;opacity:.12;white-space:pre-wrap;overflow:hidden;transform:rotate(-8deg)}body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='x'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23x)'/%3E%3C/svg%3E")}
+a{text-decoration:none;color:inherit}.wrap{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:80;background:rgba(5,17,42,.92);backdrop-filter:blur(12px);border-bottom:3px solid var(--acid)}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font:42px/1 Bangers;letter-spacing:1px}.brand em{font-style:normal;color:#6c991e}
+.links{display:flex;gap:24px;text-transform:uppercase;font-size:12px;font-weight:900}.links a:hover{text-decoration:underline;text-decoration-thickness:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 19px;border:3px solid var(--ink);background:var(--ink);color:white;border-radius:12px;font-weight:900;text-transform:uppercase;box-shadow:5px 5px 0 var(--acid);transition:.15s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--acid)}.btn.white{background:#102955;color:var(--paper);box-shadow:5px 5px 0 var(--ink)}
+.hero{padding:60px 0 75px;position:relative}.heroGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:center}
+.kicker{display:inline-block;background:var(--orange);border:3px solid var(--ink);padding:8px 12px;font-size:11px;font-weight:900;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--ink)}
+h1{font:clamp(105px,16vw,205px)/.72 Bangers;margin:24px 0 10px;letter-spacing:4px;text-shadow:8px 8px 0 var(--orange),12px 12px 0 rgba(0,0,0,.45);-webkit-text-stroke:1px var(--paper)}
+.hero h2{font-size:clamp(24px,3.5vw,42px);margin:20px 0 12px;line-height:.95}.hero p{font-size:16px;line-height:1.7;color:#c5d0e4;max-width:560px}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:25px}.ca{margin-top:20px;border:2px dashed #777;border-radius:12px;padding:12px;font-size:11px;font-weight:800;background:#ffffff55}
+.artWrap{position:relative}.heroArt{width:100%;display:block;border:4px solid var(--ink);border-radius:30px;box-shadow:12px 12px 0 var(--ink);transform:rotate(1.2deg)}
+.bubble{position:absolute;background:var(--pink);border:3px solid var(--ink);border-radius:50%;padding:18px;font:28px Bangers;line-height:.85;box-shadow:5px 5px 0 var(--ink);right:-25px;top:25px;transform:rotate(9deg)}
+.doodle{position:absolute;font:38px Bangers;transform:rotate(-12deg);left:-20px;bottom:25px}
+.ticker{border-top:4px solid var(--acid);border-bottom:4px solid var(--acid);background:var(--acid);overflow:hidden;white-space:nowrap}
+.tickerTrack{display:inline-block;font:30px Bangers;letter-spacing:2px;padding:12px 0;animation:marquee 22s linear infinite}.tickerTrack span{margin:0 25px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+section{padding:95px 0}.eyebrow{text-transform:uppercase;font-size:11px;font-weight:900;letter-spacing:.18em;color:#8fa6ca}.title{font:clamp(62px,8.5vw,102px)/.84 Bangers;margin:6px 0 35px;letter-spacing:2px;text-shadow:4px 4px 0 var(--orange)}.head{display:flex;justify-content:space-between;align-items:end;gap:25px}.head p{max-width:420px;line-height:1.6;color:#b4c3dc}
+.paper{background:#0e2853;border:3px solid var(--paper);border-radius:26px;box-shadow:9px 9px 0 var(--ink)}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:25px}.storyText{padding:38px}.storyText p{font-size:17px;line-height:1.8;color:#c5d0e4}.quote{font:40px/1 Bangers;margin:25px 0}.storyImg{overflow:hidden}.storyImg img{width:100%;height:100%;min-height:470px;object-fit:cover;display:block}
+.memes{display:grid;grid-template-columns:1.25fr .75fr;gap:22px}.memeBig{grid-row:span 2}.memes img{width:100%;height:100%;min-height:250px;object-fit:cover;display:block;border:3px solid var(--ink);border-radius:22px;box-shadow:7px 7px 0 var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{padding:25px;border:3px solid var(--ink);background:var(--paper);border-radius:18px;box-shadow:5px 5px 0 var(--ink);transform:rotate(var(--r))}
+.stat:nth-child(1){--r:-1deg}.stat:nth-child(2){--r:1deg}.stat:nth-child(3){--r:-.7deg}.stat:nth-child(4){--r:1deg}.stat small{font-size:10px;text-transform:uppercase;font-weight:900;color:#9eb0cf}.stat strong{font-size:25px;display:block;margin-top:9px}
+.token{background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:28px;padding:40px;box-shadow:11px 11px 0 var(--orange)}.tokenGrid{display:grid;grid-template-columns:1fr 1fr;gap:45px}.token .title{color:#fff;text-shadow:4px 4px #333;margin-bottom:15px}.token p{color:#bbb;line-height:1.7}.rows{margin-top:5px}.row{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid #343434}.row span{color:#aaa}.row b{color:var(--acid)}.supply{margin-top:24px;height:25px;border:3px solid white;border-radius:30px;padding:3px}.supply i{display:block;height:100%;width:100%;border-radius:20px;background:var(--acid)}
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.phase{padding:29px;background:#0e2853;border:3px solid var(--paper);border-radius:21px;box-shadow:7px 7px 0 var(--ink)}.phase:nth-child(2){background:var(--pink);transform:translateY(17px) rotate(1deg)}.phase:nth-child(3){background:var(--blue);transform:rotate(-1deg)}.phase b{font:38px Bangers}.phase h4{font-size:19px;margin:12px 0}.phase ul{padding:0;list-style:none;line-height:2;color:#c5d0e4;font-size:13px}.phase li:before{content:"🗑️ ";font-size:12px}
+.terminal{margin-top:22px;background:#151515;color:#d9ff83;border:3px solid var(--ink);border-radius:18px;padding:20px;font:13px/1.7 ui-monospace,monospace;box-shadow:7px 7px 0 var(--ink)}.terminal .green{color:var(--acid)}.cursor{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.cta{background:var(--acid);border:4px solid var(--ink);border-radius:30px;padding:65px 25px;text-align:center;box-shadow:13px 13px 0 var(--ink)}.cta .title{font-size:clamp(75px,11vw,135px);margin:5px}.cta p{max-width:600px;margin:10px auto 22px;line-height:1.6;font-weight:700}
+footer{border-top:4px solid var(--acid);padding:35px 0 45px;margin-top:20px}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot small{color:#9eb0cf}.social{display:flex;gap:10px}.social a{padding:10px 12px;border:2px solid var(--ink);border-radius:10px;font-size:11px;font-weight:900;background:var(--paper)}
+@media(max-width:850px){.links{display:none}.heroGrid,.story,.tokenGrid,.memes{grid-template-columns:1fr}.heroArt{order:-1}.bubble{right:8px}.stats{grid-template-columns:1fr 1fr}.road{grid-template-columns:1fr}.phase:nth-child(2),.phase:nth-child(3){transform:none}.memeBig{grid-row:auto}.storyImg img{min-height:330px}}
+@media(max-width:500px){section{padding:70px 0}.stats{grid-template-columns:1fr}.token,.storyText{padding:27px}.actions{flex-direction:column}.btn{width:100%}.doodle{left:5px}.bubble{font-size:22px;padding:14px}}
+</style>
+</head>
+<body>
+<header><nav class="wrap">
+<a class="brand" href="#">$<em>SCRAPS</em></a>
+<div class="links"><a href="#story">Lore</a><a href="#memes">Lifestyle</a><a href="#token">Token</a><a href="#roadmap">Roadmap</a></div>
+<a class="btn" href="https://t.me/SCRAPSHOOD" target="_blank">JOIN THE HOOD ↗</a>
+</nav></header>
+
+<main>
+<section class="hero"><div class="wrap heroGrid">
+<div>
+<span class="kicker">🚨 BREAKING: RACCOON GOT RICH 🚨</span>
+<h1>$SCRAPS</h1>
+<h2>THE DUMPSTER<br>WAS JUST THE BEGINNING.</h2>
+<p>Scraps went from eating leftovers behind a dumpster to owning the kind of stuff that makes your financial advisor nervous. Now he's bringing the whole hood to Solana.</p>
+<div class="actions"><a class="btn" href="https://pump.fun" target="_blank">BUY THE SCRAPS ↗</a><a class="btn white" href="https://t.me/SCRAPSHOOD" target="_blank">TELEGRAM ↗</a></div>
+<div class="ca">CA: <b>COMING SOON</b> &nbsp; • &nbsp; TAX: <b>0%</b></div>
+</div>
+<div class="artWrap"><img class="heroArt" src="SCRAP1.jpg" alt="Scraps in a suit with a private jet"><div class="bubble">STILL<br>HUNGRY.</div><div class="doodle">✦ $$$ ✦</div></div>
+</div></section>
+
+<div class="ticker"><div class="tickerTrack">
+<span>🦝 $SCRAPS</span><span>TRASH TO CASH</span><span>0% TAX</span><span>SOLANA</span><span>THE HOOD</span><span>🗑️ MORE SCRAPS</span><span>🦝 $SCRAPS</span><span>TRASH TO CASH</span><span>0% TAX</span><span>SOLANA</span><span>THE HOOD</span><span>🗑️ MORE SCRAPS</span>
+</div></div>
+
+<section id="story"><div class="wrap">
+<div class="head"><div><div class="eyebrow">01 / ORIGIN STORY</div><div class="title">HE ATE TRASH.</div></div><p>Then he found money. Then he found more money. Nobody has explained the business model.</p></div>
+<div class="story"><article class="paper storyText">
+<p>Scraps was just another raccoon with a dream, a questionable diet and absolutely no intention of staying poor.</p>
+<div class="quote">“IF IT'S IN THE BIN,<br>IT'S MINE.”</div>
+<p>One lucky night changed everything. Trash became treasure. Treasure became millions. Millions became a jet, a yacht, a luxury car and one extremely unnecessary watch.</p>
+<p>Now the hood is open. $SCRAPS is the memecoin for anyone who has ever looked at a dumpster and thought: <b>“There has to be something good in there.”</b></p>
+</article><div class="paper storyImg"><img src="SCRAP3.jpg" alt="Scraps beside a luxury car at sunset"></div></div>
+</div></section>
+
+<section id="memes"><div class="wrap">
+<div class="head"><div><div class="eyebrow">02 / PROOF OF DRIP</div><div class="title">SCRAPS GOT THE BAG.</div></div><p>He may have started in a bin, but he is absolutely not parking his yacht there.</p></div>
+<div class="memes"><div class="memeBig"><img src="SCRAP4.jpg" alt="Scraps on a yacht at night"></div><img src="SCRAP1.jpg" alt="Scraps and private jet"><img src="SCRAP3.jpg" alt="Scraps and luxury car"></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="head"><div><div class="eyebrow">03 / THE NUMBERS</div><div class="title">NO FUNNY MATH.</div></div></div>
+<div class="stats"><div class="stat"><small>Total supply</small><strong>1,000,000,000</strong></div><div class="stat"><small>Tax</small><strong>0%</strong></div><div class="stat"><small>Chain</small><strong>Solana</strong></div><div class="stat"><small>Launch</small><strong>pump.fun</strong></div></div>
+</div></section>
+
+<section id="token"><div class="wrap"><div class="token"><div class="tokenGrid">
+<div><div class="eyebrow">04 / TOKENOMICS</div><div class="title">THE SCRAPPILE.</div><p>One billion $SCRAPS. Zero tax. No seventeen-page whitepaper explaining why a raccoon needs a governance council.</p><div class="supply"><i></i></div><div class="terminal"><span class="green">scraps@hood:~$</span> status<br>token ........ $SCRAPS<br>chain ......... Solana<br>supply ........ 1,000,000,000<br>tax ........... 0%<br>contract ...... COMING SOON<br><span class="green">scraps@hood:~$</span> <span class="cursor">█</span></div></div>
+<div class="rows"><div class="row"><span>Token</span><b>$SCRAPS</b></div><div class="row"><span>Network</span><b>Solana</b></div><div class="row"><span>Launch platform</span><b>pump.fun</b></div><div class="row"><span>Total supply</span><b>1,000,000,000</b></div><div class="row"><span>Tax</span><b>0%</b></div><div class="row"><span>Contract address</span><b>COMING SOON</b></div></div>
+</div></div></div></section>
+
+<section id="roadmap"><div class="wrap">
+<div class="head"><div><div class="eyebrow">05 / THE PLAN</div><div class="title">ROADMAP? MORE LIKE TRASHMAP.</div></div><p>There is a plan. It was written on the back of a pizza box.</p></div>
+<div class="road">
+<article class="phase"><b>PHASE 01</b><h4>ESCAPE THE BIN</h4><ul><li>Launch $SCRAPS</li><li>Build the Hood</li><li>Spam the timeline with memes</li><li>Recruit fellow degenerates</li></ul></article>
+<article class="phase"><b>PHASE 02</b><h4>GET THE BAG</h4><ul><li>Community raids</li><li>More Scraps artwork</li><li>Collabs &amp; chaos</li><li>Make the raccoon unavoidable</li></ul></article>
+<article class="phase"><b>PHASE 03</b><h4>BUY THE YACHT</h4><ul><li>Global Hood expansion</li><li>Community-led ideas</li><li>Bigger meme universe</li><li>Never forget the dumpster</li></ul></article>
+</div></div></section>
+
+<section><div class="wrap"><div class="cta">
+<div class="eyebrow">THE HOOD IS OPEN</div><div class="title">COME GET<br>YOUR SCRAPS.</div>
+<p>One raccoon. One billion scraps. One very questionable journey from dumpster to the top.</p>
+<div class="actions" style="justify-content:center"><a class="btn" href="https://t.me/SCRAPSHOOD" target="_blank">JOIN THE HOOD ↗</a><a class="btn white" href="https://pump.fun" target="_blank">PUMP.FUN ↗</a></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap foot"><div><div class="brand">$<em>SCRAPS</em></div><small>© 2026 SCRAPSHOOD · MEMECOIN ON SOLANA · NOT FINANCIAL ADVICE</small></div><div class="social"><a href="https://t.me/SCRAPSHOOD" target="_blank">TELEGRAM</a><a href="https://pump.fun" target="_blank">PUMP.FUN</a></div></div></footer>
+</body></html>
