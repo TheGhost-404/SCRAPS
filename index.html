@@ -18,6 +18,9 @@ nav{height:76px;display:flex;align-items:center;justify-content:space-between}.b
 .links{display:flex;gap:24px;text-transform:uppercase;font-size:12px;font-weight:900}.links a:hover{text-decoration:underline;text-decoration-thickness:3px}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 19px;border:3px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:12px;font-weight:900;text-transform:uppercase;box-shadow:5px 5px 0 var(--acid);transition:.15s}
 .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--acid)}.btn.white{background:#102955;color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.btn.ca-pending{background:transparent;color:var(--acid);border:3px dashed var(--acid);box-shadow:none;cursor:default}
+.btn.ca-pending:hover{transform:none;box-shadow:none}
+.btn.ca-pending:after{display:none}
 .hero{padding:60px 0 75px;position:relative}.heroGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:center}
 .kicker{display:inline-block;background:var(--orange);border:3px solid var(--ink);padding:8px 12px;font-size:11px;font-weight:900;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--ink);color:var(--paper)}
 h1{font:clamp(105px,16vw,205px)/.72 Bangers;margin:24px 0 10px;letter-spacing:4px;text-shadow:8px 8px 0 var(--orange),12px 12px 0 rgba(0,0,0,.45);-webkit-text-stroke:1px var(--paper)}
@@ -41,6 +44,7 @@ section{padding:95px 0}.eyebrow{text-transform:uppercase;font-size:11px;font-wei
 .cta{background:var(--acid);border:4px solid var(--ink);border-radius:30px;padding:65px 25px;text-align:center;box-shadow:13px 13px 0 var(--ink);color:var(--paper)}.cta .title{font-size:clamp(75px,11vw,135px);margin:5px}.cta p{max-width:600px;margin:10px auto 22px;line-height:1.6;font-weight:700}
 footer{border-top:4px solid var(--acid);padding:35px 0 45px;margin-top:20px}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot small{color:#9eb0cf}.social{display:flex;gap:10px}.social a{padding:10px 12px;border:2px solid var(--ink);border-radius:10px;font-size:11px;font-weight:900;background:var(--paper)}
 @media(max-width:1024px){.wrap{width:min(1180px,94%)}.heroGrid{gap:28px}.tokenGrid{gap:30px}}
+@media(min-width:851px){h1{font-size:clamp(64px,7vw,118px)}}
 @media(max-width:850px){nav{height:66px}.links{display:none}.heroGrid,.story,.tokenGrid,.memes{grid-template-columns:1fr}.heroArt{order:-1}.bubble{right:8px}.stats{grid-template-columns:1fr 1fr}.road{grid-template-columns:1fr}.phase:nth-child(2),.phase:nth-child(3){transform:none}.memeBig{grid-row:auto}.storyImg img{min-height:330px}.head{flex-direction:column;align-items:flex-start}.head p{max-width:100%;margin-top:8px}section{padding:70px 0}}
 @media(max-width:600px){.wrap{width:92%}.brand{font-size:32px}.btn{padding:12px 16px;font-size:13px}nav .btn{padding:10px 14px;font-size:11px}h1{font-size:clamp(70px,24vw,120px);letter-spacing:2px}.hero h2{font-size:clamp(20px,7vw,30px)}.hero p{font-size:15px}.title{font-size:clamp(42px,14vw,64px);margin-bottom:22px}.cta .title{font-size:clamp(44px,17vw,80px)}.kicker{font-size:10px;padding:7px 10px;white-space:normal}.quote{font-size:clamp(26px,8vw,36px)}.storyText p{font-size:15px}.stat strong{font-size:20px}.terminal{font-size:11px;padding:16px}.foot{flex-direction:column;text-align:center}.social{justify-content:center}}
 @media(max-width:500px){section{padding:60px 0}.stats{grid-template-columns:1fr}.token,.storyText{padding:22px}.actions{flex-direction:column}.btn{width:100%}.doodle{left:5px;font-size:28px}.bubble{font-size:20px;padding:12px;line-height:1}.cta{padding:45px 20px}}
@@ -227,8 +231,7 @@ html.has-cursor,html.has-cursor *{cursor:none!important}
 <h1 id="heroTitle" aria-label="$SCRAPS">$SCRAPS</h1>
 <h2>THE DUMPSTER<br>WAS JUST THE BEGINNING.</h2>
 <p>Scraps went from eating leftovers behind a dumpster to owning the kind of stuff that makes your financial advisor nervous. Now he's bringing the whole hood to Solana.</p>
-<div class="actions"><a class="btn magnet" id="buyBtn" href="https://pump.fun" target="_blank">BUY THE SCRAPS ↗</a><a class="btn white magnet" href="https://t.me/SCRAPSHOOD" target="_blank">TELEGRAM ↗</a></div>
-<div class="ca">CA: <b>COMING SOON</b> &nbsp; • &nbsp; TAX: <b>0%</b></div>
+<div class="actions"><span class="btn ca-pending" aria-disabled="true">CA: COMING SOON</span><a class="btn white magnet" href="https://t.me/SCRAPSHOOD" target="_blank">TELEGRAM ↗</a></div>
 </div>
 <div class="artWrap tilt"><img class="heroArt" src="SCRAP1.jpg" alt="Scraps in a suit with a private jet"><div class="scanlines"></div><div class="bubble">STILL<br>HUNGRY.</div><div class="doodle">✦ $$$ ✦</div></div>
 </div></section>
