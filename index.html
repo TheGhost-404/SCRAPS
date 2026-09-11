@@ -209,6 +209,34 @@ html.has-cursor,html.has-cursor *{cursor:none!important}
   .particleLayer,.spotlight,.preload-overlay,.customCursor,.cursorDot,.cursorTrail,.scanlines{display:none!important}
   html.has-cursor,html.has-cursor *{cursor:auto!important}
 }
+/* ===== ASK SCRAPS CHATBOT ===== */
+.chatToggle{position:fixed;right:22px;bottom:22px;z-index:400;width:64px;height:64px;border-radius:50%;background:var(--acid);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:pointer;font-size:28px;display:flex;align-items:center;justify-content:center;animation:chatPulse 2.4s ease-in-out infinite}
+.chatToggle:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+@keyframes chatPulse{0%,100%{box-shadow:4px 4px 0 var(--ink),0 0 0 0 rgba(183,239,66,.5)}50%{box-shadow:4px 4px 0 var(--ink),0 0 0 10px rgba(183,239,66,0)}}
+.chatToggle .dot{position:absolute;top:-2px;right:-2px;width:16px;height:16px;background:var(--pink);border:2px solid var(--ink);border-radius:50%}
+.chatPanel{position:fixed;right:22px;bottom:98px;z-index:400;width:340px;max-width:calc(100vw - 44px);height:440px;max-height:calc(100vh - 140px);background:var(--paper);border:3px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink);display:flex;flex-direction:column;overflow:hidden;transform:translateY(16px) scale(.96);opacity:0;pointer-events:none;transition:transform .25s ease,opacity .25s ease}
+.chatPanel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto}
+.chatHead{background:var(--ink);color:var(--paper);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;font-family:Bangers;letter-spacing:1px;font-size:20px}
+.chatHead span{font-family:Poppins,sans-serif;font-size:11px;letter-spacing:1px;color:var(--acid);display:block;font-weight:600}
+.chatClose{background:none;border:none;color:var(--paper);font-size:20px;cursor:pointer;line-height:1;padding:2px 6px}
+.chatBody{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:repeating-linear-gradient(45deg,rgba(0,0,0,.02) 0 10px,transparent 10px 20px)}
+.msg{max-width:82%;padding:9px 12px;border-radius:14px;font-size:13.5px;line-height:1.4;font-family:Poppins,sans-serif;border:2px solid var(--ink);color:var(--paper)}
+.msg.bot{align-self:flex-start;background:#fff;border-bottom-left-radius:2px}
+.msg.user{align-self:flex-end;background:var(--acid);border-bottom-right-radius:2px}
+.msg.typing{display:flex;gap:4px;align-items:center;padding:12px}
+.msg.typing i{width:6px;height:6px;border-radius:50%;background:var(--ink);opacity:.4;animation:typingDot 1s infinite ease-in-out}
+.msg.typing i:nth-child(2){animation-delay:.15s}.msg.typing i:nth-child(3){animation-delay:.3s}
+@keyframes typingDot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.chatChips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.chatChips button{font-family:Poppins,sans-serif;font-size:11.5px;font-weight:600;background:#fff;border:2px solid var(--ink);border-radius:20px;padding:5px 10px;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.chatChips button:hover{background:var(--acid);transform:translateY(-2px)}
+.chatForm{display:flex;border-top:3px solid var(--ink);background:#fff}
+.chatForm input{flex:1;border:none;padding:12px 14px;font-family:Poppins,sans-serif;font-size:13.5px;outline:none;background:transparent;color:var(--paper)}
+.chatForm input::placeholder{color:#8a8a8a}
+.chatForm button{border:none;background:var(--ink);color:var(--acid);font-family:Bangers;font-size:16px;letter-spacing:1px;padding:0 18px;cursor:pointer}
+.chatForm button:hover{background:var(--pink);color:var(--ink)}
+@media(max-width:480px){.chatPanel{right:12px;bottom:88px;width:calc(100vw - 24px)}.chatToggle{right:14px;bottom:14px}}
+@media(prefers-reduced-motion:reduce){.chatToggle{animation:none}}
 </style>
 </head>
 <body>
@@ -543,6 +571,119 @@ html.has-cursor,html.has-cursor *{cursor:none!important}
       scrambleEls.forEach(function(e){ sio.observe(e); });
     }
   }
+})();
+</script>
+<button class="chatToggle" id="chatToggle" aria-label="Ask Scraps a question">🦝<span class="dot"></span></button>
+<div class="chatPanel" id="chatPanel">
+  <div class="chatHead"><div>ASK SCRAPS<span>usually answers in under 1 second</span></div><button class="chatClose" id="chatClose">✕</button></div>
+  <div class="chatBody" id="chatBody"></div>
+  <div class="chatChips" id="chatChips">
+    <button data-q="What is $SCRAPS?">What is $SCRAPS?</button>
+    <button data-q="What's the contract address?">Contract address?</button>
+    <button data-q="What chain is it on?">What chain?</button>
+    <button data-q="What's the tax?">Tax?</button>
+    <button data-q="How do I buy?">How do I buy?</button>
+  </div>
+  <form class="chatForm" id="chatForm"><input id="chatInput" type="text" placeholder="Ask a question…" autocomplete="off"><button type="submit">SEND</button></form>
+</div>
+<script>
+(function(){
+  var faq = [
+    {k:['what is scraps','what is $scraps','about scraps','who is scraps','lore','story'],
+     a:"$SCRAPS is a raccoon who went from eating literal trash to eating literal L's out of the market — now he's got a jet, a yacht, and a coin. It's a memecoin on Solana. Not financial advice, just a hungry raccoon."},
+    {k:['contract','ca','address','contract address'],
+     a:"The contract address isn't live yet — it's CA: COMING SOON. Follow the Telegram or X so you're not the last one to know when it drops."},
+    {k:['chain','network','blockchain','solana'],
+     a:"$SCRAPS runs on Solana."},
+    {k:['tax','fee','fees'],
+     a:"0% tax. No fees, no surprises — just supply and demand."},
+    {k:['supply','total supply','how many tokens','market cap','mcap'],
+     a:"Total supply is 1,000,000,000 $SCRAPS."},
+    {k:['buy','how do i buy','how to buy','where to buy','purchase'],
+     a:"Once the contract is live: get a Solana wallet (Phantom is popular), load it with SOL, head to the launch on pump.fun, paste the CA, and swap. Never buy from a CA someone DMs you — always confirm it on our official X/Telegram first."},
+    {k:['launch','platform','pump.fun','pumpfun'],
+     a:"$SCRAPS is launching on pump.fun."},
+    {k:['telegram','tg','community','discord'],
+     a:"Join the hood on Telegram: t.me/SCRAPSHOOD"},
+    {k:['twitter','x','x.com'],
+     a:"Follow $SCRAPS on X: x.com/scrapsonsol"},
+    {k:['roadmap','plan','phases'],
+     a:"Check the Roadmap section on the page for the full breakdown of phases — short version: get rich, get richer, don't look back."},
+    {k:['rug','scam','safe','legit','safety'],
+     a:"Always DYOR. There's no official CA yet — anyone sending you one early is not to be trusted. Only trust links posted on this site, our X, or the official Telegram."},
+    {k:['who made','team','dev','developer','founder'],
+     a:"$SCRAPS is community-driven — the raccoon runs the show. For specifics, ask in the Telegram."},
+    {k:['hi','hello','hey','sup','yo'],
+     a:"Hey! I'm the $SCRAPS bot. Ask me about the token, the chain, tax, supply, or how to buy."}
+  ];
+  var fallback = "Not sure on that one — try the Telegram (t.me/SCRAPSHOOD) and the hood will help you out.";
+
+  function answerFor(q){
+    var lower = q.toLowerCase();
+    var best = null, bestScore = 0;
+    faq.forEach(function(item){
+      var score = 0;
+      item.k.forEach(function(k){ if(lower.indexOf(k) !== -1) score += k.length; });
+      if(score > bestScore){ bestScore = score; best = item; }
+    });
+    return best ? best.a : fallback;
+  }
+
+  var toggle = document.getElementById('chatToggle');
+  var panel = document.getElementById('chatPanel');
+  var closeBtn = document.getElementById('chatClose');
+  var body = document.getElementById('chatBody');
+  var form = document.getElementById('chatForm');
+  var input = document.getElementById('chatInput');
+  var chips = document.getElementById('chatChips');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var greeted = false;
+
+  function addMsg(text, who){
+    var m = document.createElement('div');
+    m.className = 'msg ' + who;
+    m.textContent = text;
+    body.appendChild(m);
+    body.scrollTop = body.scrollHeight;
+    return m;
+  }
+
+  function respond(q){
+    addMsg(q, 'user');
+    var typing = document.createElement('div');
+    typing.className = 'msg bot typing';
+    typing.innerHTML = '<i></i><i></i><i></i>';
+    body.appendChild(typing);
+    body.scrollTop = body.scrollHeight;
+    var delay = reduced ? 50 : 500 + Math.random()*500;
+    setTimeout(function(){
+      typing.remove();
+      addMsg(answerFor(q), 'bot');
+    }, delay);
+  }
+
+  toggle.addEventListener('click', function(){
+    panel.classList.toggle('open');
+    if(panel.classList.contains('open') && !greeted){
+      greeted = true;
+      addMsg("Yo, I'm ScrapsBot 🦝 — ask me anything about the token, or tap a quick question below.", 'bot');
+    }
+  });
+  closeBtn.addEventListener('click', function(){ panel.classList.remove('open'); });
+
+  chips.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-q]');
+    if(!btn) return;
+    respond(btn.getAttribute('data-q'));
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var q = input.value.trim();
+    if(!q) return;
+    input.value = '';
+    respond(q);
+  });
 })();
 </script>
 </body></html>
